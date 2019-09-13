@@ -1,0 +1,50 @@
+<div class="home">
+
+    <div class="home__date">
+        <span>September 13, 2019</span>
+        <span>07:25 AM</span>
+    </div>
+
+    <div class="home__greetings">
+        <label>Good Morning, <span>Juan</span></label>
+        <span>It's Friday :)</span>
+    </div>
+
+    <div class="home__wow">   
+        <app-wow></app-wow>
+    </div>
+
+    <div class="home__buttons">
+        <button (click)="redirect('menu')">
+            <app-icon size="s" name="spoon-knife"></app-icon>
+            Check Menu</button>
+        <button (click)="redirect('order')">
+            <app-icon size="s" name="shopping-cart"></app-icon>
+            Show Orders</button>
+    </div>
+
+    <div class="home__breakfast">
+        <div class="home__breakfast-today">
+            <label>Today's Breakfast</label>
+            <img src="./assets/images/bg1.jpg">
+            <span class="home__breakfast-menu">Tapsilog</span>
+        </div>
+    
+        <div class="home__breakfast-tomorrow">
+            <label>Breakfast for tomorrow</label>
+            <img src="./assets/images/bg1.jpg">
+            <span class="home__breakfast-menu">Longsilog</span>
+        </div>
+    </div>
+
+    <div class="home__credits">
+        <label class="home__credits-title">Credits 
+            <a (click)="redirect('credits')">See details</a>
+        </label>
+        <div class="home__credits-content">
+            <span>August 1 - 13 September</span>
+            <span>&#8369; 300.00</span>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,28 @@
+<div class="drawer" [ngClass]="{
+    'drawer--closed': drawer.closed,
+    'drawer--hidden': drawer.hidden
+}">
+    <div class="drawer__outside" (click)="close()">
+
+    </div>
+    <div class="drawer__content">
+        <ul class="drawer__navigation">
+            <li class="drawer__navigation-item">
+                JENER SIGUA
+
+                <app-icon 
+                    (click)="close()"
+                    name="x"></app-icon>
+            </li>
+            <li 
+                *ngFor="let item of navigationMenus"
+                [ngClass]="{'drawer__navigation-item--active': activeMenu && item.label === activeMenu.label}"
+                class="drawer__navigation-item" (click)="navAction(item)">
+                <app-icon [size]="'s'" [name]="item.icon"></app-icon> {{item.label}}
+            </li> 
+            <li class="drawer__navigation-item" (click)="navAction('LOGOUT')">
+                <app-icon [size]="'s'" name="log-out"></app-icon> LOGOUT
+            </li>
+        </ul>
+    </div>    
+</div>

@@ -1,0 +1,48 @@
+:host{
+    display: block;
+}
+.menu-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    grid-template-rows: 9rem;
+    grid-auto-rows: 9rem;
+    padding: 0.5rem;
+    grid-gap: 0.5rem;
+
+    .menu{
+        background-color: #eee;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+        position: relative;
+        border: 1px solid #ccc;
+
+        &__photo{
+            height: 100%;
+            width: auto;
+        }
+
+        &__name{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0.5rem;
+            font-size: 1.4rem;
+            background: #f7b733;
+            font-weight: 500; 
+            border-top-right-radius: 3px;
+        }
+
+        &__price{
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0.5rem;
+            background: #fe491a;
+            color: #fff;
+            font-size: 1.25rem; 
+            border-bottom-left-radius: 3px;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.page{
+    height: 100vh;
+    background: #eee;
+    max-width: 60rem;
+    margin: auto;
+    position: relative;
+    overflow-x: hidden;
+
+    &__content{
+        background: #fff;
+        height: calc(100vh - 6.5rem);
+        overflow-y: hidden;
+    }
+}

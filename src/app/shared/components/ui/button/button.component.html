@@ -1,0 +1,11 @@
+<button 
+    [ngStyle]="style"
+    class="button button--{{size}} button--{{type}}">
+    <app-icon 
+        *ngIf="icon" 
+        [type]="iconType"
+        [name]="icon"
+        [size]="size"
+    ></app-icon>
+    <ng-content></ng-content>
+</button>

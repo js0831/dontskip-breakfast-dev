@@ -1,0 +1,27 @@
+<div class="login"> 
+    <div class="login__background login__background--{{background}}"></div>
+    
+    <div class="login__slogan {{transitionClass}}">
+        <h1>{{slogan[activeSloganIndex].h1}}</h1>
+        <h2>{{slogan[activeSloganIndex].h2}}</h2>
+    </div>
+
+
+    <app-button 
+        (click)="loginPopup.open()"
+        type="primary"
+        class="login__button"
+        size="l" >ORDER NOW</app-button> 
+</div>
+
+<app-popup [ctrl]="loginPopup"> 
+    <div class="login__popup">
+        <button (click)="login('f')" class="fb">
+            <app-icon type="image"name="fb2.png" size="m"></app-icon>
+            Login via Facebook</button>
+
+        <button (click)="login('g')" class="g">
+            <app-icon type="image"name="gmail.png" size="m"></app-icon>
+            Login via Google</button>  
+    </div>
+</app-popup>

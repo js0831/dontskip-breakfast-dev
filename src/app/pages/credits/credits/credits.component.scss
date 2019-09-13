@@ -1,0 +1,41 @@
+.credits{
+    padding:.5rem;
+
+    &__title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .5rem;
+    } 
+
+    &__date-range{
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #fe491a;
+    }
+
+    &__list{
+        height: calc(100vh - 18.5rem);
+        overflow-y: auto;
+
+        table{
+            margin-bottom: .5rem;
+        }
+    }
+
+    &__total{
+        padding: .5rem;
+        background: #fe491a;
+        font-size: 1.7rem;
+        color: #fff;
+        font-weight: 500;
+        height: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+    }
+}

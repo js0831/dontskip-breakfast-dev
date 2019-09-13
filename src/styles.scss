@@ -1,0 +1,111 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
+    box-sizing: border-box;
+    color: #333;
+    overflow: hidden;
+    background: #777;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    box-sizing: border-box;
+}
+
+h1{
+    font-size: 2.5rem;
+}
+h2{
+    font-size: 2.25rem;
+}
+h3{
+    font-size: 1.75rem;
+}
+
+// #f7b733
+// #48bbaa
+// #fe491a
+// #dfdce3
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    border-bottom: 2px solid #fe491a;
+
+    thead{
+        background: #fe491a;
+        color: #fff;
+        font-size: 1.2rem;
+
+        td{
+            font-weight: 500;
+            padding:1rem .5rem;
+            border-right: 1px dotted #ff673f;
+            &:last-child{
+                border: none;
+            }
+        }
+    }
+
+    tbody{
+        tr{
+            td{
+                padding:1rem .5rem;
+                font-size: 1.3rem;
+                border-right: 1px dashed #eee;
+                position: relative;
+
+                &:last-child{
+                    border: none;
+                }
+            }
+
+            &:nth-child(even){
+                background: #eee;
+            }
+            border-bottom: 1px dashed #ddd
+        }
+    }
+}
+
+// FORM
+[type=text],
+[type=number],
+[type=date],
+select,
+textarea{
+    border: 1px solid #6f6f6f;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    background: #fff;
+}
+
+
+// SLIDER
+.slide{
+    width: 100%;
+    overflow: hidden;
+    &__slider{
+        width: 200%;
+        display: flex;
+        transition: all .5s ease-in-out;
+
+        > *{
+            flex: 1;
+        }
+    }
+}
+
+.showmore{
+    color: #fe491a;
+    text-align: center;
+    display: block;
+    font-size: 1.4rem;
+    padding: 1rem;
+    background: #eee;
+    border-radius: 15px;
+}

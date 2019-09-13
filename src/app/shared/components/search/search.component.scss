@@ -1,0 +1,30 @@
+.search-form{
+    position: relative;
+    input{
+        border: 1px solid #ddd;
+        padding: 0.5rem 1.5rem;
+        border-radius: 15px;
+        outline: none;
+        height: 3.2rem;
+        width: 100%;
+
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: #ddd;
+        }
+    }
+
+    button{
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 4rem;
+        background: #48bbaa;
+        border: none;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+
+        fill: #fff;
+        outline: none;
+    }
+}

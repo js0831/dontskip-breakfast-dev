@@ -1,0 +1,5 @@
+<svg *ngIf="name && type === 'svg'" [attr.class]="classes" >
+    <use [attr.xlink:href]="xlinkHREF"></use> 
+</svg> 
+
+<img *ngIf="name && type === 'image'" [attr.class]="classes" src="./assets/images/icons/{{name}}" alt="">

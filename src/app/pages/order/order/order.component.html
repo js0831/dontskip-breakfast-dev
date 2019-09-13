@@ -1,0 +1,178 @@
+<div class="order">
+    <div class="order__title">
+        <h1>Orders</h1> 
+
+        <div class="order__navigation">
+            <a>Previous</a>
+            <span>|</span>
+            <a>Next</a>
+        </div>
+    </div> 
+
+    <table class="order__status"> 
+        <tbody>
+                <tr>
+
+                </tr>
+                <tr>
+                    <td>
+                        Week:
+                    </td>
+                    <td>
+                        September 1 - 7 
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        Status:   
+                    </td>
+                    <td>
+                        Draft 
+                    </td>
+                </tr> 
+                <tr>
+                    <td>
+                        Paid:   
+                    </td>
+                    <td>
+                        No
+                    </td>
+                </tr> 
+        </tbody>
+    </table> 
+    <table class="order__list">
+        <thead>
+            <tr>
+                <td style="width: 8rem;">
+                        September
+                </td>
+                <td>
+                        Food
+                </td>
+                <td style="width: 8rem;">
+                        Price
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                        1 Sun
+                </td>
+                <td>
+                        Tapsilog
+                </td>
+                <td>
+                        &#8369; 50.00
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        2 Mon
+                </td>
+                <td>
+                        Hotsilog
+                </td>
+                <td>
+                        &#8369; 50.00
+
+                        <ul class="order__list-action">
+                            <li>
+                                CANCEL
+                            </li>
+                            <li>
+                                VIEW
+                            </li>
+                            <li>
+                                EDIT
+                            </li>
+                        </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        3 Tue
+                </td>
+                <td>
+                        Tocilog
+                </td>
+                <td>
+                        &#8369; 50.00
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        4 Wed
+                </td>
+                <td>
+                        Porksilog
+                </td>
+                <td>
+                        &#8369; 50.00
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        5 Thu
+                </td>
+                <td style="text-align: center">
+                        <app-icon class="order__button" size="s" name="plus-square"></app-icon>
+                </td>
+                <td>
+                         
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        6 Fri
+                </td>
+                <td>
+                        Adobo
+                </td>
+                <td>
+                        &#8369; 50.00
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        7 Sat
+                </td>
+                <td>
+                        Lugaw
+                </td>
+                <td>
+                        &#8369; 50.00
+                </td>
+            </tr>
+            <tr class="order__total">
+                <td colspan="2">
+                    Total
+                </td> 
+                <td>
+                    &#8369; 350.00
+                </td> 
+            </tr>
+        </tbody>
+    </table>
+
+    <app-button 
+        class="order__submit"
+        type="primary">Submit Order</app-button>
+</div>
+
+<!-- TODO: Create separate component -->
+<app-popup class="menu-popup" [ctrl]="menuPopup">     
+    <div class="slide">
+        <div class="slide__slider" [ngClass]="{'slide__slider--next': slide}">
+            <div class="menu-popup__selection">
+                <app-search></app-search> 
+                <div class="menu-popup__list">
+                    <app-menu-list></app-menu-list>
+                </div>
+            </div>
+            <div class="menu-popup__selection">
+                <app-menu-details></app-menu-details>
+            </div>
+        </div>
+    </div> 
+</app-popup>

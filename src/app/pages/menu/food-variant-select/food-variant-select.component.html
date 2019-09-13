@@ -1,0 +1,17 @@
+<div class="variant">
+    <div *ngIf="show" (click)="toggleShow()" class="variant__modal"></div>    
+    <label (click)="toggleShow()">
+        {{selected.label}}
+    </label> 
+
+    <ul *ngIf="show" class="variant__select">
+        <a (click)="toggleShow()" class="variant__close">x</a>
+        <li 
+            [ngClass]="{'variant__option--selected': selected && c.label === selected.label}"
+            (click)="select(c)"
+            *ngFor="let c of choices" class="variant__option">
+            {{c.label}}
+            <span *ngIf="c.additional">+{{c.additional}}</span>
+        </li>                        
+    </ul>
+</div>

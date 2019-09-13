@@ -1,0 +1,104 @@
+.login{
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    
+    &__slogan{ 
+        position: absolute;
+        padding: 1rem;
+        top: calc(100vh / 4);
+        width: 100%;
+        text-align: center;
+        margin: auto;
+        box-sizing: border-box;
+        z-index: 1;
+
+        *{
+            transition: all .5s ease-in-out
+        }
+        h1{
+            padding: 1rem 0;  
+        }
+
+        h2{
+            font-weight: 400; 
+            font-size: 2rem;
+        }
+
+        &.exit{
+            *{
+                opacity: 0;
+            }
+            h1{
+                transform: translateX(-105%);
+            }
+            h2{
+                transform: translateX(105%);
+            }
+        }
+    }
+    &__button{
+        z-index: 2;
+        position: absolute;
+        bottom: calc(100vh / 4);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &__background{ 
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        right: 0; 
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+        opacity: 0.3;         
+
+        &--1{
+            background-image: url(/assets/images/bg1.jpg);
+        }
+        &--2{
+            background-image: url(/assets/images/bg2.jpg);
+        }
+        &--3{
+            background-image: url(/assets/images/bg3.jpg);
+        }
+        &--4{
+            background-image: url(/assets/images/bg4.jpg);
+        }
+    }
+
+    &__popup{
+        width: 100%;
+        max-width: 30rem;
+        margin: auto; 
+        
+        button{
+            width: 100%;
+            border: 0;
+            padding: 1.5rem;
+            margin: .5rem 0;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;        
+    
+            &.fb{
+                background: #3b5a9a;
+            }
+    
+            &.g{
+                background: #d64131;
+            }
+
+            app-icon{
+                position: absolute;
+                left: 1rem;
+            }
+        }
+    }
+}
+ 

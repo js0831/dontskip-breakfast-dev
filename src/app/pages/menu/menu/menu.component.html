@@ -1,0 +1,12 @@
+<div class="menu"> 
+    <div class="menu__search">
+        <h1>Menu</h1>        
+        <app-search></app-search>
+        
+    </div>
+    <app-menu-list></app-menu-list>
+</div>
+
+<app-popup [ctrl]="menuPopup">
+    <app-menu-details></app-menu-details>
+</app-popup>

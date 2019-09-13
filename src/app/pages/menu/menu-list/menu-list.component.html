@@ -1,0 +1,15 @@
+<div class="menu-list">
+    <div 
+        *ngFor="let m of menus"
+        class="menu">
+        <img 
+            (click)="selectMenu(m)"
+            class="menu__photo" [src]="m.photo" alt="">
+        
+        <label class="menu__name">{{m.name}}</label>
+        <label class="menu__price">&#8369; {{m.price}}</label>
+
+    </div>
+</div>
+<a class="showmore">show more...</a>
+

@@ -1,0 +1,63 @@
+<div class="credits">
+        <div class="credits__title">
+            <h1>Credits</h1>  
+
+            <div class="credits__date-range">
+                August 1 - 5 September
+            </div>
+        </div>  
+
+        <table>
+                <thead>
+                    <tr>
+                        <td style="width: 8.5rem;">
+                            Delivered
+                        </td>
+                        <td style="width: 8.5rem;">
+                            Ordered
+                        </td>
+                        <td>
+                            Food
+                        </td>
+                        <td style="width:6.5rem">
+                            Price
+                        </td>
+                    </tr>
+                </thead>
+        </table>
+        <div class="credits__list">
+                <table> 
+                    <tbody>
+                        <tr *ngFor="let c of credits">
+                            <td style="width: 8.5rem;">
+                                {{c.delivered}}
+                            </td>
+                            <td style="width: 8.5rem;">
+                                    {{c.ordered}}
+                            </td>
+                            <td>
+                                <app-button size="s" type="link">{{c.food}}</app-button>
+                            </td>
+                            <td style="width:6.5rem">
+                                &#8369; {{c.price}}
+                            </td>
+                        </tr> 
+                    </tbody>
+                </table>
+                <a class="showmore">show more...</a>
+        </div>        
+        <div class="credits__total">
+            <span>
+                Total
+            </span>
+            <span>
+                    &#8369; 550.00
+            </span>
+        </div>
+</div>
+
+<app-popup [ctrl]="menuPopup">
+    <app-menu-details
+        [readonly]="true"
+    ></app-menu-details>
+</app-popup>

@@ -1,0 +1,72 @@
+.messages{
+    padding:.5rem;
+
+    &__title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .5rem;
+    } 
+
+    &__conversations{
+        height: calc(100vh - 16.5rem);
+        overflow-y: auto;
+    }
+
+    &__from-user,
+    &__from-admin{ 
+        padding: 1rem;
+        margin: 1rem;
+        width: 70%;
+        border-radius: .5rem;
+        line-height: 1.2;
+        font-size: 1.25rem;
+        position: relative;
+    }
+
+    &__timestamp{
+        position: absolute;
+        top: -1.25rem;
+        left: 4px;
+        font-size: 1rem;
+    }
+
+    &__from-user{
+        background: #3a9dfb;
+        color: #fff;
+        float: right;
+
+        .messages__timestamp{
+            right: 0;
+            left: initial;
+            color: #333;
+        }
+    }
+
+    &__from-admin{
+        background: #ebe8ef;
+        color: #333; 
+        float: left;
+    }
+
+    &__box{
+        display: flex;
+        -webkit-box-align: stretch;
+        align-items: stretch;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        height: 6rem;
+        background: #ddd;
+        padding: 0.5rem;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+
+        textarea{
+            font-size: 1.8rem;
+            flex: 1;
+            margin-right: .5rem;
+        }
+    }
+}

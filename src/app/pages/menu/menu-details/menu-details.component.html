@@ -1,0 +1,61 @@
+<div class="menu">
+    <div class="menu__photo">
+        <img src="./assets/images/bg1.jpg">
+    </div>
+
+    <div class="menu__details">
+        <!-- <label class="menu__name">Tapsilog</label>  -->
+        <ul class="menu__food">
+            <li>
+                1 Rice 
+                <app-food-variant-select [readonly]="readonly" ></app-food-variant-select> 
+                <span class="additional">+5.00</span>
+            </li>
+            <li>
+                1 Tapa
+            </li>
+            <li>
+                1 Egg 
+            </li>
+        </ul> 
+
+        <div class="menu__addons">
+            <label class="menu__addons-label">Addons:</label>
+            <ng-container *ngIf="!readonly">
+                    <select class="menu__addons-select">
+                            <option>-- select --</option>
+                            <option>Rice</option>
+                            <option>Egg</option>                
+                            <option>Soup</option>                
+                            <option>Hotdog</option>                                
+                        </select>
+                        <input class="menu__addons-quantity" type="number" value="1">
+                        <app-button class="menu__addons-button" size="s" type="primary">add</app-button>
+            </ng-container>
+        </div>
+
+        <ul class="menu__food"> 
+            <li>
+                <a *ngIf="!readonly" class="menu__addon-remove">x</a>
+                1 Rice 
+                <app-food-variant-select [readonly]="readonly" ></app-food-variant-select>  
+
+                <span class="additional">+15.00</span>
+            </li> 
+            <li>
+                <a *ngIf="!readonly" class="menu__addon-remove">x</a>
+                1 Egg 
+                <span class="additional">+10.00</span>
+            </li>
+        </ul> 
+        <div class="menu__order-info">
+            <span>
+                <ng-container *ngIf="!readonly">
+                    Date:
+                    <input class="menu__delivery-date" type="date">         
+                </ng-container>
+            </span>
+            <label class="menu__price">= &#8369; 80.00</label>
+        </div>
+    </div>
+</div>

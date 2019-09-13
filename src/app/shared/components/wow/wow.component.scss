@@ -1,0 +1,22 @@
+.wow{
+    height: calc(100vh - 41rem);
+    background: #ddd; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #969696;
+
+    &__word{
+        width: 77%;
+        font-size: 1.5rem;
+        font-style: italic;
+        line-height: 1.5; 
+    }
+
+    &__by{
+        position: absolute;
+        bottom: .5rem;
+        right: .5rem;         
+    }
+}
