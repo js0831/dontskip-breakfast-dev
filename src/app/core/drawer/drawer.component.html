@@ -8,7 +8,7 @@
     <div class="drawer__content">
         <ul class="drawer__navigation">
             <li class="drawer__navigation-item">
-                JENER SIGUA
+                {{user?.name || 'Guest'}}
 
                 <app-icon 
                     (click)="close()"

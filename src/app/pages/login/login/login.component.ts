@@ -2,7 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Popup } from 'src/app/shared/components/popup/popup.class';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
-import { LoginService } from '../login.service';
+import { UserService } from '../user.service';
+import { AppState } from 'src/app/shared/app.state';
+import { User } from '../user.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -39,12 +42,23 @@ export class LoginComponent implements OnInit, OnDestroy {
   background = 1;
 
   constructor(
-    private loginService: LoginService
+    private userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit() {
     this.rotateSlogan();
     this.rotateBackground();
+
+    this.userService.selectUser().subscribe( (x: AppState) => {
+      if (x.action === 'USER_LOGIN') {
+        if (x.status === 'ok') {
+          this.router.navigate(['home']);
+        } else {
+          alert('Login Failed');
+        }
+      }
+    });
   }
 
   private rotateSlogan() {
@@ -77,14 +91,10 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login(provider) {
-    this.loginService.login(provider).then( x => {
-      console.log(x);
-    }).catch( error => {
-      console.log(error);
-    });
+    this.userService.login(provider);
   }
 
   logout() {
-    this.loginService.logout();
+    this.userService.logout();
   }
 }
