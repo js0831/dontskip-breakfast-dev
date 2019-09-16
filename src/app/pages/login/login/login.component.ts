@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Popup } from 'src/app/shared/components/popup/popup.class';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +38,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   background = 1;
 
-  constructor(public afAuth: AngularFireAuth) {}
+  constructor(
+    private loginService: LoginService
+  ) {}
 
   ngOnInit() {
     this.rotateSlogan();
@@ -74,28 +77,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login(provider) {
-
-    if (provider === 'g') {
-      this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then( x => {
-        console.log(x);
-      }).catch( error => {
-        console.log(error);
-      });
-    } else if (provider === 'f') {
-      this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).then( x => {
-        console.log(x);
-      }).catch( error => {
-        console.log(error);
-      });
-    }
-
-  }
-
-  logout() {
-    this.afAuth.auth.signOut().then( x => {
+    this.loginService.login(provider).then( x => {
       console.log(x);
     }).catch( error => {
       console.log(error);
     });
+  }
+
+  logout() {
+    this.loginService.logout();
   }
 }
