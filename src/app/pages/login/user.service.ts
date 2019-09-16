@@ -6,6 +6,9 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as actions from './state/user.actions';
 import { User } from './user.interface';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { async } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -16,20 +19,16 @@ export class UserService {
 
   constructor(
     private injector: Injector,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private httpClient: HttpClient
   ) {
     this.afAuth = injector.get(AngularFireAuth);
   }
 
-  login(via: string) {
+  async login(via: string) {
     this.afAuth.auth.signInWithPopup(this.getAuthProvider(via))
     .then( x => {
-      const profile = x.additionalUserInfo.profile as User;
-      this.storeLogin({
-        data: profile,
-        message: 'success',
-        status: 'ok'
-      });
+      this.firebaseAuthenticationSuccess(x);
     })
     .catch( x => {
       this.storeLogin({
@@ -59,6 +58,23 @@ export class UserService {
     }
   }
 
+  private async firebaseAuthenticationSuccess(data: any) {
+    const firebaseToken = data.user.ma;
+    const user = data.user as User;
+
+    const token = await this.httpClient.post<any>(`${environment.apiURL}user/token`, {
+      idToken: firebaseToken,
+      email: user.email,
+      uid: user.uid
+    }).toPromise();
+
+    user.token = token.data;
+    this.storeLogin({
+      data: user,
+      message: 'success',
+      status: 'ok'
+    });
+  }
   // STORE
   selectUser(): Observable<any> {
     return this.store.select('user');

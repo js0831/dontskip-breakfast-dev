@@ -16,12 +16,12 @@ export function userReducer(state = initialAppState, action: actions.Actions) {
         case actions.USER_LOGIN:
             const data = payload.data;
             const user: User = data ? {
-                id: data.id,
+                uid: data.uid,
+                displayName: data.displayName,
+                photoURL: data.photoURL,
                 email: data.email,
-                family_name: data.family_name,
-                given_name: data.given_name,
-                name: data.name,
-                picture: data.picture
+                phoneNumber: data.phoneNumber,
+                token: data.token
             } : null;
 
             LocalStorageService.save('user', user);
