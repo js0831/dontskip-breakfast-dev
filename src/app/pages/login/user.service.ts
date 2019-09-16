@@ -8,7 +8,6 @@ import * as actions from './state/user.actions';
 import { User } from './user.interface';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { async } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +60,11 @@ export class UserService {
   private async firebaseAuthenticationSuccess(data: any) {
     const firebaseToken = data.user.ma;
     const user = data.user as User;
+    const isNewUser = data.additionalUserInfo.isNewUser;
+
+    if (isNewUser) {
+      await this.httpClient.post<any>(`${environment.apiURL}user`, user).toPromise();
+    }
 
     const token = await this.httpClient.post<any>(`${environment.apiURL}user/token`, {
       idToken: firebaseToken,
