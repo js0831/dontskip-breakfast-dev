@@ -5,25 +5,17 @@
     padding-bottom: .5rem;
 
     li{
-        line-height: 2rem;
+        line-height: 2.5rem;
         font-size: 1.5rem;
         position: relative;
         display: flex;
+        -webkit-box-align: center;
         align-items: center;
+        justify-content: space-between;
+
         
         app-food-variant-select{
             margin-left: .5rem;
-        }
-        .additional{
-            position: absolute;
-            right: 0;
-            font-size: 1.2rem;
-            color: #fe491a;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            top: 0;
         }
     }
 }
