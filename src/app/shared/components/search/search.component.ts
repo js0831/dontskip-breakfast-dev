@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from './search.service';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  key = '';
+  constructor(
+    private searchService: SearchService
+  ) { }
 
   ngOnInit() {
   }
 
+  search() {
+    this.searchService.dispatch({
+      event: 'ON_SEARCH',
+      data: this.key
+    });
+  }
 }

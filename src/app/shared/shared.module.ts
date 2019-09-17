@@ -11,7 +11,7 @@ import { SearchComponent } from './components/search/search.component';
 import { MenuDetailsComponent } from '../pages/menu/menu-details/menu-details.component';
 import { FoodVariantSelectComponent } from '../pages/menu/food-variant-select/food-variant-select.component';
 import { WowComponent } from './components/wow/wow.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,7 +29,8 @@ import { WowComponent } from './components/wow/wow.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     RouterModule,

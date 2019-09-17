@@ -11,6 +11,9 @@ import { HttpInterceptorService } from './shared/interceptors/http-interceptor.s
 import { ErrorsHandler } from './shared/interceptors/error-handler.service';
 import { StoreModule } from '@ngrx/store';
 import { userReducer } from './pages/login/state/user.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { MenuEffects } from './pages/menu/state/menu.effects';
+import { menuReducer } from './pages/menu/state/menu.reducer';
 
 @NgModule({
   declarations: [
@@ -23,10 +26,15 @@ import { userReducer } from './pages/login/state/user.reducer';
     AngularFireAuthModule,
     AppRoutingModule,
     LayoutModule,
-
+    EffectsModule.forRoot(
+      [
+        MenuEffects
+      ]
+    ),
     StoreModule.forRoot(
       {
-        user: userReducer
+        user: userReducer,
+        menu: menuReducer
       }
     )
   ],

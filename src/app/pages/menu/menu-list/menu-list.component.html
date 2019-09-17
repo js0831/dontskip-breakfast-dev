@@ -1,6 +1,6 @@
-<div class="menu-list">
+<div class="menu-list" *ngIf="menu">
     <div 
-        *ngFor="let m of menus"
+        *ngFor="let m of menu.list"
         class="menu">
         <img 
             (click)="selectMenu(m)"
@@ -11,5 +11,8 @@
 
     </div>
 </div>
-<a class="showmore">show more...</a>
+<a 
+    *ngIf="moreToLoad"
+    class="showmore" 
+    (click)="showMore()">show more...</a>
 
