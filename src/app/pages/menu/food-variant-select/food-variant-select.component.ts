@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Variant } from '../menu.interface';
 
 @Component({
   selector: 'app-food-variant-select',
@@ -8,33 +9,20 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FoodVariantSelectComponent implements OnInit {
 
   @Input() readonly = false;
+  @Input() variants: Variant[] = [];
+  selected: Variant;
 
   show = false;
-  selected: any;
-
-  choices = [
-    {
-      label: 'Plain'
-    },
-    {
-      label: 'Garlic'
-    },
-    {
-      label: 'Fried'
-    },
-    {
-      label: 'Egg',
-      additional: '5.00'
-    }
-  ];
 
   constructor() { }
 
   ngOnInit() {
-    this.selected = this.choices[0];
+    if (this.variants.length > 0) {
+      this.selected = this.variants[0];
+    }
   }
 
-  select(choice: any) {
+  select(choice: Variant) {
     this.selected = choice;
     this.show = false;
   }

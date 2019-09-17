@@ -4,20 +4,8 @@
     </div>
 
     <div class="menu__details">
-        <!-- <label class="menu__name">Tapsilog</label>  -->
-        <ul class="menu__food">
-            <li>
-                1 Rice 
-                <app-food-variant-select [readonly]="readonly" ></app-food-variant-select> 
-                <span class="additional">+5.00</span>
-            </li>
-            <li>
-                1 Tapa
-            </li>
-            <li>
-                1 Egg 
-            </li>
-        </ul> 
+    
+        <app-menu-foods [foods]="menu.foods"></app-menu-foods>
 
         <div class="menu__addons">
             <label class="menu__addons-label">Addons:</label>
@@ -38,7 +26,7 @@
             <li>
                 <a *ngIf="!readonly" class="menu__addon-remove">x</a>
                 1 Rice 
-                <app-food-variant-select [readonly]="readonly" ></app-food-variant-select>  
+                <!-- <app-food-variant-select [readonly]="readonly" ></app-food-variant-select>   -->
 
                 <span class="additional">+15.00</span>
             </li> 

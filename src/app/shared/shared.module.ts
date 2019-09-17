@@ -13,6 +13,7 @@ import { FoodVariantSelectComponent } from '../pages/menu/food-variant-select/fo
 import { WowComponent } from './components/wow/wow.component';
 import { FormsModule } from '@angular/forms';
 import { CurrencyPipe } from './pipes/currency.pipe';
+import { MenuFoodsComponent } from '../pages/menu/menu-foods/menu-foods.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { CurrencyPipe } from './pipes/currency.pipe';
     MenuListComponent,
     SearchComponent,
     MenuDetailsComponent,
+    MenuFoodsComponent,
     FoodVariantSelectComponent,
     WowComponent,
     CurrencyPipe
@@ -44,6 +46,7 @@ import { CurrencyPipe } from './pipes/currency.pipe';
     MenuListComponent,
     SearchComponent,
     MenuDetailsComponent,
+    MenuFoodsComponent,
     FoodVariantSelectComponent,
     WowComponent,
     CurrencyPipe

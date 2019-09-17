@@ -1,17 +1,17 @@
-<div class="variant">
+<div class="variant" *ngIf="variants">
     <div *ngIf="show" (click)="toggleShow()" class="variant__modal"></div>    
     <label (click)="toggleShow()">
-        {{selected.label}}
+        {{selected?.name}}
     </label> 
 
     <ul *ngIf="show" class="variant__select">
         <a (click)="toggleShow()" class="variant__close">x</a>
         <li 
-            [ngClass]="{'variant__option--selected': selected && c.label === selected.label}"
+            [ngClass]="{'variant__option--selected': selected && c._id === selected._id}"
             (click)="select(c)"
-            *ngFor="let c of choices" class="variant__option">
-            {{c.label}}
-            <span *ngIf="c.additional">+{{c.additional}}</span>
+            *ngFor="let c of variants" class="variant__option">
+            {{c.name}}
+            <span *ngIf="c.additional">+ {{c.additional}}</span>
         </li>                        
     </ul>
 </div>

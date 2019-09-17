@@ -1,0 +1,13 @@
+<ul class="food" *ngIf="foods">
+    <li *ngFor="let food of foods">
+        1 {{food.name}} 
+         
+        <app-food-variant-select 
+            *ngIf="food.variants.length > 0"
+            [variants]="food.variants"
+            [readonly]="false" 
+        ></app-food-variant-select> 
+
+        <!-- <span class="additional">+5.00</span> -->
+    <li>
+</ul> 
