@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Popup } from 'src/app/shared/components/popup/popup.class';
 import { Subscription } from 'rxjs';
-import { Menu } from '../menu-list/menu.interface';
 import { MenuService } from '../menu.service';
 import { SearchService } from 'src/app/shared/components/search/search.service';
+import { Menu } from '../menu.interface';
 
 @Component({
   selector: 'app-menu',
@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.menuPopup = new Popup('Tapsilog');
+    this.menuPopup = new Popup('');
     this.menuPopup.buttons = [
       {
         label: 'Add to Order List',
@@ -34,14 +34,16 @@ export class MenuComponent implements OnInit, OnDestroy {
       }
     ];
 
-    // setTimeout(x => {
-    //   this.menuPopup.open();
-    // }, 1000);
+    this.subs.push(this.menuPopup.listen.subscribe( x => {
+      // alert(x.event);
+      this.menuPopup.close();
+    }));
 
-    // this.subs.push(this.menuPopup.listen.subscribe( x => {
-    //   // alert(x.event);
-    //   this.menuPopup.close();
-    // }));
+    this.subs.push(this.menuService.storeMenu().subscribe(x => {
+      if (x.action === 'MENU_SELECT' && x.menu.selected) {
+        this.showSelectedMenu(x.menu.selected);
+      }
+    }));
 
     this.menuService.storeLoadList({
       page: 0,
@@ -57,6 +59,11 @@ export class MenuComponent implements OnInit, OnDestroy {
         });
       }
     });
+  }
+
+  private showSelectedMenu(menu: Menu) {
+    this.menuPopup.title = menu.name;
+    this.menuPopup.open();
   }
 
   ngOnDestroy(): void {

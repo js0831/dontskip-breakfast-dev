@@ -1,6 +1,6 @@
-<div class="menu">
+<div class="menu" *ngIf="menu">
     <div class="menu__photo">
-        <img src="./assets/images/bg1.jpg">
+        <img [src]="menu.photo">
     </div>
 
     <div class="menu__details">
@@ -55,7 +55,7 @@
                     <input class="menu__delivery-date" type="date">         
                 </ng-container>
             </span>
-            <label class="menu__price">= &#8369; 80.00</label>
+            <label class="menu__price">= <span [innerHTML]="totalPrice | currency"></span> </label>
         </div>
     </div>
 </div>

@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import * as actions from './state/menu.actions';
 import { Observable } from 'rxjs';
 import { PaginationParams } from 'src/app/shared/interfaces/pagination-params.interface';
+import { Menu } from './menu.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class MenuService {
   }
 
   // STORE
-  storeSelectMenu(): Observable<AppState> {
+  storeMenu(): Observable<AppState> {
     return this.store.select('menu') as Observable<AppState>;
   }
 
@@ -36,6 +37,10 @@ export class MenuService {
 
   storeShowMore(param: PaginationParams) {
     this.store.dispatch( new actions.MenuShowMore(param));
+  }
+
+  storeSelectMenu(menu: Menu) {
+    this.store.dispatch( new actions.MenuSelect(menu));
   }
 
 }

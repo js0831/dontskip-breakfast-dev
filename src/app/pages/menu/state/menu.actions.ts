@@ -4,6 +4,7 @@ export const MENU_LOAD = '[MENU] Load';
 export const MENU_LOAD_FINISH = '[MENU] Load finish';
 export const MENU_SHOW_MORE = '[MENU] Show more';
 export const MENU_SHOW_MORE_FINISH = '[MENU] Show more finish';
+export const MENU_SELECT = '[MENU] Select';
 
 export class MenuLoad implements Action {
     readonly type = MENU_LOAD;
@@ -25,7 +26,13 @@ export class MenuShowMoreFinish implements Action {
     constructor(public payload?: any) {}
 }
 
+export class MenuSelect implements Action {
+    readonly type = MENU_SELECT;
+    constructor(public payload?: any) {}
+}
+
 export type Actions = MenuLoad
 | MenuLoadFinish
 | MenuShowMore
-| MenuShowMoreFinish;
+| MenuShowMoreFinish
+| MenuSelect;

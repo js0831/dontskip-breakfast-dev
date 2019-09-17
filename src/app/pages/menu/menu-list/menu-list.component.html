@@ -7,7 +7,9 @@
             class="menu__photo" [src]="m.photo" alt="">
         
         <label class="menu__name">{{m.name}}</label>
-        <label class="menu__price">&#8369; {{m.price}}</label>
+        <label class="menu__price">
+            <span [innerHTML]="m.price | currency"></span>
+        </label>
 
     </div>
 </div>

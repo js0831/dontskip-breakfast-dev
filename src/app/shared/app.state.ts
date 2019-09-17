@@ -1,5 +1,5 @@
 import { User } from '../pages/login/user.interface';
-import { Menu } from '../pages/menu/menu-list/menu.interface';
+import { Menu } from '../pages/menu/menu.interface';
 
 export interface AppState {
 
@@ -9,6 +9,7 @@ export interface AppState {
 
     user?: User;
     menu?: {
+        selected?: Menu;
         list?: Menu[],
         page?: number,
         limit?: number,

@@ -12,6 +12,7 @@ import { MenuDetailsComponent } from '../pages/menu/menu-details/menu-details.co
 import { FoodVariantSelectComponent } from '../pages/menu/food-variant-select/food-variant-select.component';
 import { WowComponent } from './components/wow/wow.component';
 import { FormsModule } from '@angular/forms';
+import { CurrencyPipe } from './pipes/currency.pipe';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     SearchComponent,
     MenuDetailsComponent,
     FoodVariantSelectComponent,
-    WowComponent
+    WowComponent,
+    CurrencyPipe
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { FormsModule } from '@angular/forms';
     SearchComponent,
     MenuDetailsComponent,
     FoodVariantSelectComponent,
-    WowComponent
+    WowComponent,
+    CurrencyPipe
   ]
 })
 export class SharedModule { }

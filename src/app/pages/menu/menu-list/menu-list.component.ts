@@ -1,9 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Menu } from './menu.interface';
-import { Popup } from 'src/app/shared/components/popup/popup.class';
 import { MenuService } from '../menu.service';
 import { AppState } from 'src/app/shared/app.state';
 import { Subscription } from 'rxjs';
+import { Menu } from '../menu.interface';
 
 @Component({
   selector: 'app-menu-list',
@@ -19,7 +18,7 @@ export class MenuListComponent implements OnInit, OnDestroy {
     limit?: number,
     search?: string
   };
-  selectedMenu: Menu;
+
   subs: Subscription[] = [];
   moreToLoad = true;
 
@@ -28,7 +27,7 @@ export class MenuListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.subs.push(this.menuService.storeSelectMenu().subscribe( (x: AppState) => {
+    this.subs.push(this.menuService.storeMenu().subscribe( (x: AppState) => {
       const updateWithActions = ['MENU_LOAD_FINISH', 'MENU_SHOW_MORE_FINISH'];
 
       // hide show more button if list complete
@@ -43,14 +42,7 @@ export class MenuListComponent implements OnInit, OnDestroy {
   }
 
   selectMenu(menu: Menu) {
-    this.selectedMenu = menu;
-
-    this.viewMenu();
-  }
-
-  private viewMenu() {
-    // this.menuPopup.title = this.selectedMenu.name;
-    // this.menuPopup.open();
+    this.menuService.storeSelectMenu(menu);
   }
 
   showMore() {

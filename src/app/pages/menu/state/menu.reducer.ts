@@ -1,7 +1,5 @@
-import { Action } from '@ngrx/store';
 import * as actions from './menu.actions';
-import { AppState } from 'src/app/shared/app.state';
-import { Menu } from '../menu.interface';
+import { AppState } from 'src/app/shared/app.state'; 
 
 const initialAppState: AppState = {
     action: 'initial',
@@ -50,6 +48,17 @@ export function menuReducer(state = initialAppState, action: actions.Actions) {
                         ...state.menu,
                         ...{
                             list: [...state.menu.list, ...payload.data.list]
+                        }
+                    }
+                };
+        case actions.MENU_SELECT:
+                return {
+                    ...state,
+                    action: 'MENU_SELECT',
+                    menu: {
+                        ...state.menu,
+                        ...{
+                            selected: payload
                         }
                     }
                 };
