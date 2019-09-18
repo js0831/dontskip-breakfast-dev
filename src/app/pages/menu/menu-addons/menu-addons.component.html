@@ -1,0 +1,18 @@
+<ul class="addons"> 
+    <li *ngFor="let addon of addons;let i = index">
+        
+        <a class="addons__remove" (click)="remove(i)">x</a>
+
+        {{addon.quantity}} {{addon.food.name}} 
+        
+        <app-food-variant-select 
+            *ngIf="addon.food.variants.length > 0"
+            [food]="addon.food"
+            [readonly]="false" 
+        ></app-food-variant-select> 
+
+        <span 
+            class="addons__additional {{!addon.food?.variant?.additional ? 'addons__additional--without' : ''}}" 
+            [innerHTML]="addon.food?.variant?.additional | currency"></span>
+    </li> 
+</ul> 

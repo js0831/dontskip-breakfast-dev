@@ -1,0 +1,19 @@
+<div class="menu__addons">
+    <label class="menu__addons-label">Addons:</label>
+    <ng-container *ngIf="!readonly">
+            <select 
+                [(ngModel)]="select"
+                class="menu__addons-select">
+                <option value="-1" disabled>-- select --</option>
+                <option 
+                    [value]="i"
+                    *ngFor="let addon of addons; let i = index">
+                    {{addon.name}}
+                </option>                              
+            </select>
+            <input [(ngModel)]="quantity" class="menu__addons-quantity" type="number">
+            <app-button 
+                (click)="add()"
+                class="menu__addons-button" size="s" type="primary">add</app-button>
+    </ng-container>
+</div>

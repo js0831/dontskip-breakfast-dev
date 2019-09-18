@@ -1,5 +1,5 @@
 import * as actions from './menu.actions';
-import { AppState } from 'src/app/shared/app.state'; 
+import { AppState } from 'src/app/shared/app.state';
 
 const initialAppState: AppState = {
     action: 'initial',
@@ -8,18 +8,19 @@ const initialAppState: AppState = {
     menu: {
         list: [],
         page: 0,
-        limit: 1
+        limit: 1,
+        addons: []
     }
 };
 
 export function menuReducer(state = initialAppState, action: actions.Actions) {
     const payload = action.payload;
+    const currentAddOns = state.menu.addons || [];
 
     switch (action.type) {
         case actions.MENU_LOAD:
         case actions.MENU_SHOW_MORE:
             const { page, limit, search } = payload;
-            console.log(payload);
             return {
                 ...state,
                 action: 'MENU_LOAD',
@@ -62,6 +63,32 @@ export function menuReducer(state = initialAppState, action: actions.Actions) {
                         }
                     }
                 };
+
+
+        case actions.MENU_ADD_ADDON:
+            return {
+                ...state,
+                action: 'MENU_ADD_ADDON',
+                menu: {
+                    ...state.menu,
+                    ...{
+                        addons: [...currentAddOns, payload]
+                    }
+                }
+            };
+
+        case actions.MENU_REMOVE_ADDON:
+                return {
+                    ...state,
+                    action: 'MENU_REMOVE_ADDON',
+                    menu: {
+                        ...state.menu,
+                        ...{
+                            addons: currentAddOns.filter((item, index) => index !== payload )
+                        }
+                    }
+                };
+
         default:
             return{
                 ...state,

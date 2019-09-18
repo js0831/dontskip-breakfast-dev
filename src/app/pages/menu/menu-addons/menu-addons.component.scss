@@ -1,4 +1,4 @@
-.food{
+ .addons{
     list-style: none;
     margin-bottom: .5rem;
     border-bottom: 1px dashed #ddd;
@@ -33,5 +33,19 @@
         &--without{
             display: none;
         }
+    }
+
+    &__remove{
+        background-color: #ff3232;
+        width: 1.4rem;
+        height: 1.4rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-right: .5rem;
     }
 }

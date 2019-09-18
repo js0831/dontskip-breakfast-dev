@@ -13,6 +13,7 @@ export interface Food {
     price?: number;
     photo: string;
     addon: boolean;
+    variant?: Variant;
     variants: Variant[];
 }
 

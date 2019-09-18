@@ -35,46 +35,12 @@
         margin-bottom: 1rem;
     }
 
-    &__food{
-        list-style: none;
-        margin-bottom: .5rem;
-        border-bottom: 1px dashed #ddd;
-        padding-bottom: .5rem;
-
-        li{
-            line-height: 2rem;
-            font-size: 1.25rem;
-            position: relative;
-            display: flex;
-            align-items: center;
-            
-            app-food-variant-select{
-                margin-left: .5rem;
-            }
-            .additional{
-                position: absolute;
-                right: 0;
-                font-size: 1.2rem;
-                color: #fe491a;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                top: 0;
-            }
-        }
-    }
-
     &__price{
         color: #fe491a;
         display: block; 
         text-align: right;
         font-weight: 500;
     } 
-
-    &__addon-button{
-        margin-bottom: 1rem;
-    }
 
     &__order-info{
         display: flex;
@@ -84,51 +50,5 @@
 
     &__delivery-date{
         width: 12.5rem;
-    }
-
-    &__addons{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.5rem;
-        background: #eee;
-        
-        *{
-            margin-right: .5rem;
-
-            &:last-child{
-                margin: 0;
-            }
-        }
-
-        &-label{
-            font-size: 1.4rem;
-            font-weight: 500;
-        }
-
-        &-select{
-            flex: 1;
-        }
-
-        &-quantity{
-            width: 4rem;
-        }
-
-        &-button{
-            transform: translateY(-2px);
-        }
-    }
-    &__addon-remove{
-        background-color: #ff3232;
-        width: 1.4rem;
-        height: 1.4rem;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        color: #fff;
-        font-size: 1rem;
-        cursor: pointer;
-        margin-right: .5rem;
     }
 }

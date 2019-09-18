@@ -14,6 +14,8 @@ import { WowComponent } from './components/wow/wow.component';
 import { FormsModule } from '@angular/forms';
 import { CurrencyPipe } from './pipes/currency.pipe';
 import { MenuFoodsComponent } from '../pages/menu/menu-foods/menu-foods.component';
+import { AddonSelectComponent } from '../pages/menu/addon-select/addon-select.component';
+import { MenuAddonsComponent } from '../pages/menu/menu-addons/menu-addons.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { MenuFoodsComponent } from '../pages/menu/menu-foods/menu-foods.componen
     MenuDetailsComponent,
     MenuFoodsComponent,
     FoodVariantSelectComponent,
+    AddonSelectComponent,
+    MenuAddonsComponent,
     WowComponent,
     CurrencyPipe
   ],
@@ -48,6 +52,8 @@ import { MenuFoodsComponent } from '../pages/menu/menu-foods/menu-foods.componen
     MenuDetailsComponent,
     MenuFoodsComponent,
     FoodVariantSelectComponent,
+    AddonSelectComponent,
+    MenuAddonsComponent,
     WowComponent,
     CurrencyPipe
   ]

@@ -4,8 +4,12 @@
          
         <app-food-variant-select 
             *ngIf="food.variants.length > 0"
-            [variants]="food.variants"
+            [food]="food"
             [readonly]="false" 
         ></app-food-variant-select> 
+
+        <span 
+            class="food__additional {{!food?.variant?.additional ? 'food__additional--without' : ''}}" 
+            [innerHTML]="food?.variant?.additional | currency"></span>
     <li>
 </ul> 

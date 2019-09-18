@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 import * as actions from './state/menu.actions';
 import { Observable } from 'rxjs';
 import { PaginationParams } from 'src/app/shared/interfaces/pagination-params.interface';
-import { Menu } from './menu.interface';
+import { Menu, Food } from './menu.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +26,10 @@ export class MenuService {
     return this.httpClient.get(`${environment.apiURL}menu${urlParams}`);
   }
 
+  getAddons() {
+    return this.httpClient.get(`${environment.apiURL}food/addons`);
+  }
+
   // STORE
   storeMenu(): Observable<AppState> {
     return this.store.select('menu') as Observable<AppState>;
@@ -43,4 +47,14 @@ export class MenuService {
     this.store.dispatch( new actions.MenuSelect(menu));
   }
 
+  storeAddAddon(addon: {
+    food: Food,
+    quantity: number
+  }) {
+    this.store.dispatch( new actions.MenuAddAddon(addon));
+  }
+
+  storeRemoveAddon(index: number) {
+    this.store.dispatch( new actions.MenuRemoveAddon(index));
+  }
 }

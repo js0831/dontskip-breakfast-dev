@@ -1,0 +1,32 @@
+.menu__addons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background: #eee;
+    
+    *{
+        margin-right: .5rem;
+
+        &:last-child{
+            margin: 0;
+        }
+    }
+
+    &-label{
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    &-select{
+        flex: 1;
+    }
+
+    &-quantity{
+        width: 4rem;
+    }
+
+    &-button{
+        transform: translateY(-2px);
+    }
+}

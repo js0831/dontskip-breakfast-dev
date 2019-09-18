@@ -2,10 +2,6 @@
     <div *ngIf="show" (click)="toggleShow()" class="variant__modal"></div>    
     <label (click)="toggleShow()">
         {{selected?.name}}
-
-        <span class="variant__additional" *ngIf="selected?.additional > 0">
-           +{{selected?.additional}} 
-        </span>
     </label> 
 
     <ul *ngIf="show" class="variant__select">
