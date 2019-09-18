@@ -2,6 +2,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { MenuService } from '../menu.service';
 import { Subscription } from 'rxjs';
 import { Menu, Food } from '../menu.interface';
+import { promise } from 'protractor';
 
 @Component({
   selector: 'app-menu-details',
@@ -14,6 +15,7 @@ export class MenuDetailsComponent implements OnInit, OnDestroy {
   subs: Subscription[] = [];
   menu: Menu;
   totalPrice = 0;
+  updatePriceInterval: any;
 
   private addons: {
     quantity: number,
@@ -28,8 +30,8 @@ export class MenuDetailsComponent implements OnInit, OnDestroy {
     this.subs.push(this.menuService.storeMenu().subscribe(x => {
       if (x.action === 'MENU_SELECT') {
         this.menu = x.menu.selected;
-        this.totalPrice = this.getTotalPrice();
       } else if (x.action === 'MENU_CLEAR_SELECTED') {
+        clearInterval(this.updatePriceInterval);
         this.menu = null;
         this.addons = [];
         this.totalPrice = 0;
@@ -38,17 +40,23 @@ export class MenuDetailsComponent implements OnInit, OnDestroy {
       const addonActions = ['MENU_ADD_ADDON', 'MENU_REMOVE_ADDON'];
       if (addonActions.indexOf(x.action) >= 0)  {
         this.addons = x.menu.addons;
-        this.totalPrice = this.getTotalPrice();
       }
     }));
+
+    this.updatePriceInterval = setInterval( x => {
+      this.totalPrice = this.getTotalPrice();
+    }, 100);
   }
 
   private getTotalPrice() {
     // add the default food with varians additional
     let additional = 0;
-    this.menu.foods.forEach( x => {
-      additional += (x.variant ? x.variant.additional : 0);
-    });
+    if (this.menu) {
+      this.menu.foods.forEach( x => {
+        additional += (x.variant ? x.variant.additional : 0);
+      });
+    }
+
 
     // Add addons on the total price
     let addonsTotalPrice = 0;
@@ -61,5 +69,6 @@ export class MenuDetailsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subs.forEach( x => x.unsubscribe());
+    clearInterval(this.updatePriceInterval);
   }
 }

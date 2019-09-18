@@ -1,6 +1,6 @@
 <ul class="food" *ngIf="foods">
     <ng-container *ngFor="let food of foods;let i = index">
-        <li>
+        <li *ngIf="existOnTheFoodIds(food._id, i)">
             <span class="food__quantity">( {{count(food._id)}} )</span> {{food.name}}
 
             <app-food-variant-select 
@@ -13,4 +13,4 @@
                 [innerHTML]="food?.variant?.additional | currency"></span>
         <li>         
     </ng-container>
-</ul>  
+</ul>   

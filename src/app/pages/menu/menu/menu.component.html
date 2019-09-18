@@ -8,5 +8,5 @@
 </div>
 
 <app-popup [ctrl]="menuPopup">
-    <app-menu-details></app-menu-details>
+    <app-menu-details *ngIf="menuPopup.visible"></app-menu-details>
 </app-popup>
