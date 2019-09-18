@@ -35,8 +35,13 @@ export class MenuComponent implements OnInit, OnDestroy {
     ];
 
     this.subs.push(this.menuPopup.listen.subscribe( x => {
-      // alert(x.event);
-      this.menuPopup.close();
+      switch (x.event) {
+        case 'close':
+          this.menuService.storeClearSelectedMenu();
+          break;
+        default:
+          break;
+      }
     }));
 
     this.subs.push(this.menuService.storeMenu().subscribe(x => {

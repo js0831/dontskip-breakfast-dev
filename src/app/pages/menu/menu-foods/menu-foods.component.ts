@@ -15,4 +15,8 @@ export class MenuFoodsComponent implements OnInit {
   ngOnInit() {
   }
 
+  count(id: string) {
+    return this.foods.filter( x => x._id === id ).length;
+  }
+
 }

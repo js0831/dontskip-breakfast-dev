@@ -6,23 +6,9 @@
     <div class="menu__details">
     
         <app-menu-foods [foods]="menu.foods"></app-menu-foods>
-
         <app-addon-select></app-addon-select>
-        <app-menu-addons></app-menu-addons>
-        <!-- <ul class="menu__food"> 
-            <li>
-                <a *ngIf="!readonly" class="menu__addon-remove">x</a>
-                1 Rice 
-                <app-food-variant-select [readonly]="readonly" ></app-food-variant-select>  
+        <app-menu-addons></app-menu-addons> 
 
-                <span class="additional">+15.00</span>
-            </li> 
-            <li>
-                <a *ngIf="!readonly" class="menu__addon-remove">x</a>
-                1 Egg 
-                <span class="additional">+10.00</span>
-            </li>
-        </ul>  -->
         <div class="menu__order-info">
             <span>
                 <ng-container *ngIf="!readonly">
@@ -30,7 +16,9 @@
                     <input class="menu__delivery-date" type="date">         
                 </ng-container>
             </span>
-            <label class="menu__price">= <span [innerHTML]="totalPrice | currency"></span> </label>
+            <label class="menu__price">
+                = <span [innerHTML]="totalPrice | currency"></span> 
+            </label>
         </div>
     </div>
 </div>

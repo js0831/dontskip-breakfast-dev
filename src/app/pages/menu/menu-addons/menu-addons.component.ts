@@ -33,6 +33,14 @@ export class MenuAddonsComponent implements OnInit, OnDestroy {
     this.menuService.storeRemoveAddon(index);
   }
 
+  addOnTotalPrice(addon: {
+    quantity: number,
+    food: Food
+  }) {
+    const addonsAdditional = addon.food.variant ? addon.food.variant.additional : 0;
+    return (addonsAdditional + addon.food.price) * addon.quantity;
+  }
+
   ngOnDestroy() {
     this.subs.forEach( x => x.unsubscribe());
   }

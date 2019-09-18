@@ -17,6 +17,9 @@ export class PopupComponent implements OnInit {
 
 
   close() {
+    this.ctrl.dispatchAction({
+      event: 'close'
+    });
     this.ctrl.close();
   }
 

@@ -47,6 +47,10 @@ export class MenuService {
     this.store.dispatch( new actions.MenuSelect(menu));
   }
 
+  storeClearSelectedMenu() {
+    this.store.dispatch( new actions.MenuClearSelected());
+  }
+
   storeAddAddon(addon: {
     food: Food,
     quantity: number

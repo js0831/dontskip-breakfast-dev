@@ -5,6 +5,7 @@ export const MENU_LOAD_FINISH = '[MENU] Load finish';
 export const MENU_SHOW_MORE = '[MENU] Show more';
 export const MENU_SHOW_MORE_FINISH = '[MENU] Show more finish';
 export const MENU_SELECT = '[MENU] Select';
+export const MENU_CLEAR_SELECTED = '[MENU] Clear selected menu';
 export const MENU_ADD_ADDON = '[MENU] Add addon';
 export const MENU_REMOVE_ADDON = '[MENU] Remove addon';
 
@@ -33,6 +34,11 @@ export class MenuSelect implements Action {
     constructor(public payload?: any) {}
 }
 
+export class MenuClearSelected implements Action {
+    readonly type = MENU_CLEAR_SELECTED;
+    constructor(public payload?: any) {}
+}
+
 export class MenuAddAddon implements Action {
     readonly type = MENU_ADD_ADDON;
     constructor(public payload?: any) {}
@@ -48,5 +54,6 @@ export type Actions = MenuLoad
 | MenuShowMore
 | MenuShowMoreFinish
 | MenuSelect
+| MenuClearSelected
 | MenuAddAddon
 | MenuRemoveAddon;

@@ -28,11 +28,7 @@
             content: '+';
             display: inline-block;
             margin-right: .25rem;
-        }
-
-        &--without{
-            display: none;
-        }
+        } 
     }
 
     &__remove{
@@ -47,5 +43,12 @@
         font-size: 1rem;
         cursor: pointer;
         margin-right: .5rem;
+    }
+
+    &__quantity{
+        color: #48bbaa;
+        display: inline-block;
+        margin-right: 0.25rem;
+        font-size: 1.2rem;
     }
 }

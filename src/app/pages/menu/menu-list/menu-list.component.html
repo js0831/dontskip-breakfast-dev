@@ -12,6 +12,9 @@
         </label>
 
     </div>
+    <div *ngIf="menu.list.length === 0">
+        No results found.
+    </div>
 </div>
 <a 
     *ngIf="moreToLoad"

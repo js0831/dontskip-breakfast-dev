@@ -64,6 +64,18 @@ export function menuReducer(state = initialAppState, action: actions.Actions) {
                     }
                 };
 
+        case actions.MENU_CLEAR_SELECTED:
+            return {
+                ...state,
+                action: 'MENU_CLEAR_SELECTED',
+                menu: {
+                    ...state.menu,
+                    ...{
+                        selected: null,
+                        addons: []
+                    }
+                }
+            };
 
         case actions.MENU_ADD_ADDON:
             return {

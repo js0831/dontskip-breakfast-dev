@@ -30,13 +30,14 @@ export class MenuListComponent implements OnInit, OnDestroy {
     this.subs.push(this.menuService.storeMenu().subscribe( (x: AppState) => {
       const updateWithActions = ['MENU_LOAD_FINISH', 'MENU_SHOW_MORE_FINISH'];
 
+      if (updateWithActions.indexOf(x.action) >= 0) {
+        this.menu = x.menu;
+        this.moreToLoad = x.menu.list.length > 0;
+      }
+
       // hide show more button if list complete
       if ( x.action === updateWithActions[1] && this.menu.list.length === x.menu.list.length) {
         this.moreToLoad = false;
-      }
-
-      if (updateWithActions.indexOf(x.action) >= 0) {
-        this.menu = x.menu;
       }
     }));
   }
