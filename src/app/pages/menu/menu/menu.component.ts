@@ -55,7 +55,7 @@ export class MenuComponent implements OnInit, OnDestroy {
       limit: 1
     });
 
-    this.searchService.listen.subscribe( x => {
+    this.subs.push(this.searchService.listen.subscribe( x => {
       if (x.event === 'ON_SEARCH') {
         this.menuService.storeLoadList({
           page: 0,
@@ -63,7 +63,7 @@ export class MenuComponent implements OnInit, OnDestroy {
           search: x.data
         });
       }
-    });
+    }));
   }
 
   private showSelectedMenu(menu: Menu) {

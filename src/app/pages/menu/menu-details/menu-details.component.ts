@@ -45,17 +45,17 @@ export class MenuDetailsComponent implements OnInit, OnDestroy {
 
     this.updatePriceInterval = setInterval( x => {
       this.totalPrice = this.getTotalPrice();
+      console.log('UPDATE');
     }, 100);
   }
 
   private getTotalPrice() {
     // add the default food with varians additional
     let additional = 0;
-    if (this.menu) {
-      this.menu.foods.forEach( x => {
-        additional += (x.variant ? x.variant.additional : 0);
-      });
-    }
+    if (!this.menu) { return; }
+    this.menu.foods.forEach( x => {
+      additional += (x.variant ? x.variant.additional : 0);
+    });
 
 
     // Add addons on the total price
