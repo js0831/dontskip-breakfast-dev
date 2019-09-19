@@ -1,0 +1,57 @@
+
+<div *ngIf="open && calendar" class="calendar__modal"></div>
+<div *ngIf="open && calendar" class="calendar" [ngClass]="{'calendar--hidden': hidden}">    
+    <div class="calendar__banner">
+        <label>SELECT DATE</label>
+
+        <h1>{{ (!selectedDate ? calendar.date : selectedDate) | date : 'EE, MMM d'}}</h1>
+    </div>
+
+    <div class="calendar__navigation">
+        
+
+        <div class="calendar__current">
+            {{calendar.date | date : 'MMMM yyyy'}}
+        </div>
+
+        <div class="calendar__navigation-arrows">
+            <a (click)="previous()"> 
+                <span class="arrow arrow--left"></span>
+            </a>
+            <a (click)="next()"> 
+                <span class="arrow arrow--right"></span>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="calendar__days">
+        <div class="calendar__day calendar__day--name" *ngFor="let d of daysInitials;">
+            <span>{{d}}</span>
+        </div>
+
+        <div class="calendar__day calendar__day--previous-month" *ngFor="let d of calendar.getPreviousMonthPadding();">
+            <span>{{d}}</span>
+        </div>
+        <div 
+            (click)="selectDate(d)"
+            [ngClass]="{
+                'calendar__day--today': isToday(d),
+                'calendar__day--selected': isSelected(d)
+            }"
+            class="calendar__day" *ngFor="let d of calendar.getMonthDaysArray();">
+            <span>{{d}}</span>
+        </div>
+        <div class="calendar__day calendar__day--next-month" *ngFor="let d of calendar.getNextMonthPadding();">
+            <span>{{d}}</span>
+        </div>
+    </div>
+
+    <div class="calendar__buttons">
+        <button (click)="cancel()">CANCEL</button>
+        <button [ngClass]="{'disabled': !selectedDate}" (click)="ok()">OK</button>
+    </div>
+</div>
+
+
+

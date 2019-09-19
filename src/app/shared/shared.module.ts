@@ -16,6 +16,8 @@ import { CurrencyPipe } from './pipes/currency.pipe';
 import { MenuFoodsComponent } from '../pages/menu/menu-foods/menu-foods.component';
 import { AddonSelectComponent } from '../pages/menu/addon-select/addon-select.component';
 import { MenuAddonsComponent } from '../pages/menu/menu-addons/menu-addons.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { DatepickerDirective } from './directives/datepicker.directive';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { MenuAddonsComponent } from '../pages/menu/menu-addons/menu-addons.compo
     AddonSelectComponent,
     MenuAddonsComponent,
     WowComponent,
-    CurrencyPipe
+    CurrencyPipe,
+    CalendarComponent,
+    DatepickerDirective
   ],
   imports: [
     CommonModule,
@@ -55,7 +59,8 @@ import { MenuAddonsComponent } from '../pages/menu/menu-addons/menu-addons.compo
     AddonSelectComponent,
     MenuAddonsComponent,
     WowComponent,
-    CurrencyPipe
+    CurrencyPipe,
+    CalendarComponent
   ]
 })
 export class SharedModule { }
