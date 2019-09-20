@@ -30,6 +30,7 @@ export class CalendarComponent implements OnInit {
 
       this.datePickerInput = x.data;
       this.calendar = new Calendar(this.datePickerInput.value);
+      this.selectedDate = this.calendar.date;
       this.open = true;
       setTimeout( () => {
         this.hidden = false;
