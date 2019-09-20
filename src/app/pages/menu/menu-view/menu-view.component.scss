@@ -5,6 +5,16 @@
     height: 100%;
     width: 100%;
     background: #fff;
+    transition: all .6s ease-in-out;
+
+    &--hidden{
+        height: 18rem;
+        width: 12rem;
+        opacity: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%); 
+    }
 
     &__picture{
         height: calc(40vh);

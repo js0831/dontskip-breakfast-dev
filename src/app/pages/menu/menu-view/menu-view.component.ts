@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuViewComponent implements OnInit {
 
+  open = true;
+  hidden = true;
+
   constructor() { }
 
   ngOnInit() {
+
+    setTimeout( x => {
+      this.hidden = false;
+    }, 2000);
+  }
+
+  close() {
+    this.hidden = true;
+
+    setTimeout( x => {
+      this.open = false;
+    }, 500);
   }
 
 }

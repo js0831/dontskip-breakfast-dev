@@ -1,11 +1,17 @@
-<div class="menu">
+<div 
+    *ngIf="open"
+    [ngClass]="{'menu--hidden': hidden}"
+    class="menu">
     <div class="menu__picture" style="background-image:url('./assets/images/bg2.jpg')"></div>
     
     <button class="menu__order">
         <app-icon size="m" name="plus"></app-icon>
     </button>
 
-    <app-icon class="menu__close" name="x"></app-icon>
+    <app-icon 
+        (click)="close()"
+        class="menu__close" name="x"></app-icon>
+    
     <div class="menu__info">
         <label class="menu__description">
             <span class="menu__info-name">Longsilog</span>
@@ -26,6 +32,4 @@
             1 Egg
         </li>
     </ul>
-
-    
 </div>
