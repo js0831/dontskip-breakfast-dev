@@ -1,13 +1,16 @@
 <div 
     *ngIf="open"
-    [ngClass]="{'menu--hidden': hidden}"
+    [ngClass]="{
+        'menu--hidden': hidden,
+        'menu--order' : order
+    }"
     class="menu">
     <div class="menu__picture" style="background-image:url('./assets/images/bg2.jpg')"></div>
     
-    <button class="menu__order">
-        <app-icon size="m" name="plus"></app-icon>
+    <button (click)="order = !order" class="menu__order">
+        <app-icon *ngIf="!order" size="m" [name]="'plus'"></app-icon>
+        <app-icon *ngIf="order" size="m" [name]="'x'"></app-icon>
     </button>
-
     <app-icon 
         (click)="close()"
         class="menu__close" name="x"></app-icon>
@@ -23,13 +26,44 @@
 
     <ul class="menu__foods">
         <li>
-            1 Rice
+            1 Rice 
+            
+            <span *ngIf="order" class="variant">Garlic</span>
+            <span *ngIf="order" class="menu__additional-price" [innerHTML]="5 | currency"></span>
         </li>
         <li>
             2 Longganisa
         </li>
         <li>
-            1 Egg
+            1 Egg <span *ngIf="order" class="variant">Scrambled</span>
         </li>
     </ul>
+
+    <ng-container *ngIf="order">  
+        <div class="menu__addon">
+            <label class="menu__addon-title">Addons</label>
+            <app-icon size="s" name="plus-circle"></app-icon>
+        </div>
+        <div class="divider"></div>
+        <ul *ngIf="order" class="menu__foods">
+            <li>
+                1 Rice 
+                <span class="variant">Garlic</span>
+                <span class="menu__additional-price" [innerHTML]="5 | currency"></span>
+            </li> 
+        </ul>
+
+        <div class="divider"></div>
+        <div class="menu__submit">
+            <div class="date">
+                <app-icon size="s" name="calendar"></app-icon>
+                <input type="text" appDatepicker placeholder="Select Date">
+            </div>
+            <button>ORDER</button>
+        </div>
+
+    </ng-container>
+    
+
+
 </div>

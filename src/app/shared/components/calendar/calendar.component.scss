@@ -1,3 +1,5 @@
+$calendarTheme : #333;
+
 .calendar{
     display: block;
     width: max-content;
@@ -29,7 +31,7 @@
     }
 
     &__banner{
-        background: #6200ed;
+        background: $calendarTheme;
         color: #fff;
         padding: 1.5rem;
         height: 10rem;
@@ -100,8 +102,8 @@
 
         &--selected{
             span{
-                border:2px solid lighten($color: #6200ed, $amount: 20);
-                background: #6200ed;
+                border:2px solid lighten($color: $calendarTheme, $amount: 20);
+                background: $calendarTheme;
                 color: #fff;
             }
         }
@@ -147,7 +149,7 @@
             background: transparent;
             border: none;
             font-weight: bold;
-            color: #6200ed;
+            color: $calendarTheme;
             font-size: 1.5rem;   
             outline: none;
 

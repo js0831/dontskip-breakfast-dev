@@ -9,6 +9,7 @@ export class MenuViewComponent implements OnInit {
 
   open = true;
   hidden = true;
+  order = false;
 
   constructor() { }
 

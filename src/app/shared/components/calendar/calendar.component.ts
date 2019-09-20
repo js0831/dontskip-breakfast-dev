@@ -77,7 +77,7 @@ export class CalendarComponent implements OnInit {
     if (!this.selectedDate) {
       return;
     }
-    this.datePickerInput.value = this.datePipe.transform(this.selectedDate, 'MM-dd-yyyy');
+    this.datePickerInput.value = this.datePipe.transform(this.selectedDate, 'MM/dd/yyyy');
     this.reset();
   }
 
