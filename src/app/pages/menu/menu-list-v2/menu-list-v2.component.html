@@ -1,0 +1,22 @@
+<div class="menu menu--{{view}}">
+    <div 
+        *ngFor="let menu of menus"
+        class="menu__item">
+         
+        <div class="menu__picture" style="background-image:url('./assets/images/bg2.jpg')"></div>
+
+
+        <div class="menu__info">
+                <label class="menu__name">
+                    Tapsilog 
+                </label> 
+        
+                <label class="menu__description" >
+                    Beef tapa, Sinangag at itlog            
+                </label> 
+
+                <label class="menu__price" [innerHTML]="50 | currency"></label>
+        </div>
+
+    </div>
+</div>
