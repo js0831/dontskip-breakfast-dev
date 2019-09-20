@@ -1,0 +1,31 @@
+<div class="menu">
+    <div class="menu__picture" style="background-image:url('./assets/images/bg2.jpg')"></div>
+    
+    <button class="menu__order">
+        <app-icon size="m" name="plus"></app-icon>
+    </button>
+
+    <app-icon class="menu__close" name="x"></app-icon>
+    <div class="menu__info">
+        <label class="menu__description">
+            <span class="menu__info-name">Longsilog</span>
+            <span class="menu__info-desc">Longganisa, Sinangag at Itlog</span>
+        </label>
+        <label class="menu__price" [innerHTML]="50 | currency"></label>
+    </div>
+    <div class="divider"></div>
+
+    <ul class="menu__foods">
+        <li>
+            1 Rice
+        </li>
+        <li>
+            2 Longganisa
+        </li>
+        <li>
+            1 Egg
+        </li>
+    </ul>
+
+    
+</div>
