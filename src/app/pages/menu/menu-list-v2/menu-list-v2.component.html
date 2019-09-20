@@ -1,10 +1,28 @@
+
+<div class="menu__control">
+    <label class="title">Menu</label>
+    
+    <div class="view-type">
+        <app-icon 
+            size="s" 
+            name="grid" 
+            (click)="view = 'grid'"
+            [ngClass]="{'active': view === 'grid'}"></app-icon>
+        
+        <app-icon 
+            size="s" 
+            name="menu" 
+            (click)="view = 'list'"            
+            [ngClass]="{'active': view === 'list'}"></app-icon>        
+    </div>
+</div>
+
 <div class="menu menu--{{view}}">
     <div 
         *ngFor="let menu of menus"
         class="menu__item">
          
         <div class="menu__picture" style="background-image:url('./assets/images/bg2.jpg')"></div>
-
 
         <div class="menu__info">
                 <label class="menu__name">

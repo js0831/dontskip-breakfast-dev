@@ -1,6 +1,9 @@
 .menu{
     background: #e5e5e5;
-
+    height: calc(100vh - 10.2rem);
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    
     &--grid{
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
@@ -53,10 +56,6 @@
         }
     }
 
-    height: calc(100vh - 7rem);
-    overflow-y: auto;
-    scroll-behavior: smooth;
-
     &__item{
         position: relative;
         overflow: hidden;
@@ -94,5 +93,31 @@
         font-weight: normal;
         padding: 1rem 0 0;
         color: #b5b5b5;
+    }
+}
+
+.menu{
+    &__control{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding:.5rem 0;
+
+        .title{
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+
+        .view-type{
+            fill:#a7a7a7;
+
+            app-icon{
+                margin-left: .5rem;
+
+                &.active{
+                    fill:#585858;
+                }
+            }
+        }
     }
 }
